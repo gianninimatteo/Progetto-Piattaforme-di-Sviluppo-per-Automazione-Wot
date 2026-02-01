@@ -1,1 +1,1 @@
-# Progetto-Piattaforme-di-Sviluppo-per-Automazione-Wot-
+# Progetto Wot

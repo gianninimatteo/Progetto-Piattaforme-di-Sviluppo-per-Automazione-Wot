@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc --init)",
+      "Bash(sudo npm install:*)",
+      "Bash(npx tsc)",
+      "Bash(brew services:*)",
+      "Bash(node dist/heating-logic.js:*)",
+      "Bash(open:*)",
+      "Bash(code --install-extension:*)"
+    ]
+  }
+}

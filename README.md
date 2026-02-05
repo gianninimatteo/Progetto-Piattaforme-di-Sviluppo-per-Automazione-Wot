@@ -1,1 +1,1 @@
-# Progetto Wot
+# Progetto WoT - Riscaldamento automatizzato

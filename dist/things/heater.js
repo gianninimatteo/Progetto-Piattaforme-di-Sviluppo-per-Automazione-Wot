@@ -13,6 +13,12 @@ servient.start().then(async (WoT) => {
                 type: "number",
                 description: "Temperatura desiderata",
                 readOnly: false
+            },
+            isOn: {
+                type: "boolean",
+                description: "Stato riscaldamento (acceso/spento)",
+                readOnly: true,
+                observable: true
             }
         },
         actions: {
@@ -34,6 +40,7 @@ servient.start().then(async (WoT) => {
     thing.setPropertyWriteHandler("targetTemperature", async (value) => {
         targetTemp = Number(value);
     });
+    thing.setPropertyReadHandler("isOn", async () => isOn);
     thing.setActionHandler("setTargetTemperature", async (params) => {
         const temp = await params?.value();
         targetTemp = Number(temp);

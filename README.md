@@ -7,15 +7,13 @@ L'obiettivo del progetto è avere sensori di temperatura in più stanze, esposti
 
 ### Funzionalità previste
 
-- Monitoraggio in tempo reale della temperatura in ogni stanza.
-
-- Visualizzazione dello storico delle temperature.
-
-- Notifica di eventi quando la temperatura supera o scende sotto una soglia.
+- Monitoraggio in tempo reale della temperatura in ogni stanza
 
 - Controllo del riscaldamento tramite impostazione della temperatura desiderata.
 
-- Automazione semplice del riscaldamento in base ai valori misurati.
+- Notifica di eventi quando si cambia la temperatura desiderata in ogni stanza.
+
+- Automazione semplice del riscaldamento in base ai valori misurati. Ogni stanza ha un termostato che si accende/spegne in base alla temperatura.
 
 
 ### Architettura del sistema
@@ -24,11 +22,11 @@ L'obiettivo del progetto è avere sensori di temperatura in più stanze, esposti
 
   - Sensori di temperatura (uno per stanza).
 
-  - Sistema di riscaldamento (attuatori).
+  - Sistema di riscaldamento (attuatore).
 
 - **Client WoT**
 
-  - Dashboard web per visualizzazione e controllo
+  - Dashboard web per visualizzazione e controllo delle temperature
 
   - Motore di automazione per applicare le regole (decide cosa fare in base ai dati dei sensori)
 
@@ -55,11 +53,8 @@ Ogni Thing espone una Thing Description (TD) che definisce:
 
 - **Events**
 
-  - temperatureHigh: quando la temperatura supera una soglia massima definita
-
-  - temperatureLow: quando la temperatura scende sotto una soglia minima definita
+  - temperature change : quando si cambia una temperatura desiderata in una stanza.
     
-
 
  ### Comunicazione
 

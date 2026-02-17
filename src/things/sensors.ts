@@ -67,11 +67,11 @@ servient.start().then(async (WoT) => {
             const state = await params?.value();
             isHeatingOn = Boolean(state);
 
-            // Se il riscaldamento si spegne, chiudi subito la valvola
+            //quando il riscaldamento si spegne, chiude subito la valvola
             if (!isHeatingOn) {
                 isValveOpen = false;
             } else {
-                // Se il riscaldamento si accende, controlla SUBITO se aprire la valvola
+                //quando il riscaldamento si accende, controlla subito se aprire la valvola
                 if (currentTemp <= targetTemp - 0.1) {
                     isValveOpen = true;
                 } else if (currentTemp >= targetTemp + 0.3) {
@@ -91,25 +91,22 @@ servient.start().then(async (WoT) => {
 
         setInterval(() => {
             if (isHeatingOn) {
-                // Controlla PRIMA della dispersione se aprire/chiudere valvola
+                //Controlla prima della dispersione se aprire/chiudere la valvola
                 if (currentTemp <= targetTemp - 0.1) {
-                    // Apri valvola: stanza troppo fredda
                     isValveOpen = true;
                 } else if (currentTemp >= targetTemp + 0.3) {
-                    // Chiudi valvola: stanza troppo calda
                     isValveOpen = false;
                 }
-                // Isteresi: tra targetTemp-0.1 e targetTemp+0.3 mantiene stato
 
-                // Dispersione termica costante
+                //dispersione termica costante
                 currentTemp -= 0.02;
 
-                // Solo se valvola APERTA, scalda
+                //se la valvola è aperta, scalda
                 if (isValveOpen) {
                     currentTemp += 0.04;
                 }
             } else {
-                // Riscaldamento spento: solo dispersione
+                //Riscaldamento spento: solo dispersione
                 isValveOpen = false;
                 currentTemp -= 0.02;
             }
